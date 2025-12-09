@@ -17,6 +17,9 @@ const pool = new Pool({
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.json({ status: 'ok', message: 'API is live' });
+});
 app.post('/submit', async (req, res) => {
   const { name, email, message } = req.body;
   try {

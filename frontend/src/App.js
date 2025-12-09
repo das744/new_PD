@@ -15,14 +15,14 @@ function App() {
   // Submit form to backend
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('https://your-backend.onrender.com/submit', form);
+    await axios.post(`${process.env.REACT_APP_API_URL}/submit`, form);
     setForm({ name: '', email: '', message: '' });
     fetchSubmissions();
   };
 
   // Fetch submissions from backend
   const fetchSubmissions = async () => {
-    const res = await axios.get('https://your-backend.onrender.com/submissions');
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/submissions`);
     setSubmissions(res.data);
   };
 
